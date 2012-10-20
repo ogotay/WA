@@ -1,0 +1,51 @@
+initial value
+max value
+max value increase
+normal value
+current value
+
+Skills:
+-----------------------------------------------------
+- driving vehicles
+initial value 3
+max value 19
+max normal value increase 4
+current value range <normal value, normal value>
+
+- shooting
+initial value 3
+max value 19
+max normal value increase 4
+current value range <normal value, normal value>
+
+- terrain orientation
+initial value 3
+max value 19
+max normal value increase 4
+current value range <normal value, normal value>
+
+- agility
+initial value 3
+max value 19
+max normal value increase 4
+current value range <normal value -3, normal value>
+ 
+- perception
+initial value 3
+max value 19
+max normal value increase 4
+current value range <normal value, normal value>
+
+-----------------------------------------------------
+- fighting skill
+initial value 10
+max value 19
+max normal value increase 9
+current value range <normal value, normal value>
+
+- toughness
+initial value 20
+max value 29
+max normal value increase 9
+current value range <0, normal value>
+
