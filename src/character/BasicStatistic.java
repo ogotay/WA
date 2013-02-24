@@ -6,7 +6,6 @@ public class BasicStatistic {
 	private int currentValue = 0;
 	private String statisticName = "";
 	
-	
 	public BasicStatistic(int minimumValue, int maximumValue, int currentValue, String statisticName) {
 		this.minimumValue = minimumValue;
 		this.maximumValue = maximumValue;
