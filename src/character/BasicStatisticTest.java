@@ -1,5 +1,6 @@
 package character;
 
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -8,7 +9,8 @@ import org.junit.Test;
 
 public class BasicStatisticTest {
 
-	private final int ZERO = 0;	
+	private static final int ZERO = 0;
+	
 	private BasicStatistic statistic = null;
 	private BasicStatistic statistic2 = null;
 	
