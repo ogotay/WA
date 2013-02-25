@@ -23,6 +23,11 @@ public class FirstAidKitTest {
 	}
 		
 	@Test
+	public void shouldHaveName(){
+		assertThat(firstAidKit.getName().length(), is(greaterThan(ZERO)));
+	}
+	
+	@Test
 	public void shouldBeRefilledBySpecifiedUnitsCount(){
 		int numberOfUnits = 5;
 		int numberOfUnits2 = 3;
@@ -43,13 +48,19 @@ public class FirstAidKitTest {
 		assertThat(firstAidKit2.numberOfUnits(), anyOf(equalTo(originalNumberOfUnits2 + numberOfUnits + numberOfUnits2), equalTo(firstAidKit2.maximumNumberOfUnits())));
 	}
 	
+	@Test(expected=IllegalArgumentException.class)
+	public void shouldThrowExceptionWhenRefilledByNumberOfUnitsLowerThanZero(){
+		int numberOfUnits = -1;
+		firstAidKit.refillBy(numberOfUnits);		
+	}	
+	
 	@Test
 	public void shouldUseUpSpecifiedNumberOfUnits(){
-		int numberOfUnits = 5;
+		int numberOfUnits = 1;
 		int numberOfUnits2 = 3;
 		
 		int originalNumberOfUnits = firstAidKit.numberOfUnits();
-		int originalNumberOfUnits2 = firstAidKit.numberOfUnits();
+		int originalNumberOfUnits2 = firstAidKit2.numberOfUnits();
 		
 		firstAidKit.useUp(numberOfUnits);
 		firstAidKit2.useUp(numberOfUnits);
