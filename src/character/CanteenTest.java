@@ -56,7 +56,7 @@ public class CanteenTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void shouldThrowExceptionWhenRefilledByNumberOfWaterRationsLowerThanZero(){
-		int numberOfWaterRations = -1;
+		int numberOfWaterRations = 0;
 		canteen.refillBy(numberOfWaterRations);		
 	}
 	

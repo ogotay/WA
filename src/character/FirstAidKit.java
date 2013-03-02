@@ -19,8 +19,8 @@ public class FirstAidKit {
 	}
 
 	public void refillBy(int numberOfUnits) {
-		if (numberOfUnits < 0) {
-			throw new IllegalArgumentException("Cannot refill first aid kit by number of units lower than zero: "+ Integer.toString(numberOfUnits));
+		if (numberOfUnits <= 0) {
+			throw new IllegalArgumentException("Cannot refill first aid kit by number of units lower than or equal to zero: "+ Integer.toString(numberOfUnits));
 		}
 		
 		units.changeCurrentValueBy(numberOfUnits);		

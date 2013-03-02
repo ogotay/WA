@@ -16,8 +16,8 @@ public class Canteen {
 	}
 
 	public void refillBy(int numberOfWaterRations) {
-		if (numberOfWaterRations < 0){
-			throw new IllegalArgumentException("Cannot refill canteen by number of water rations lower than zero: "+ Integer.toString(numberOfWaterRations)+".");
+		if (numberOfWaterRations <= 0){
+			throw new IllegalArgumentException("Cannot refill canteen by number of water rations lower than or equal to zero: "+ Integer.toString(numberOfWaterRations)+".");
 		}
 		
 		waterRations.changeCurrentValueBy(numberOfWaterRations);		
