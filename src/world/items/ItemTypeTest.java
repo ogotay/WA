@@ -1,4 +1,4 @@
-package character;
+package world.items;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.is;
 
 import org.junit.Before;
 import org.junit.Test;
+
 
 public class ItemTypeTest {
 

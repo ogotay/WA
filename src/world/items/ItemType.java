@@ -1,4 +1,4 @@
-package character;
+package world.items;
 
 public enum ItemType {
 	FOOD ("food"),

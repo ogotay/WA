@@ -1,4 +1,6 @@
-package character;
+package world.items;
+
+import world.BasicStatistic;
 
 public class FirstAidKit {
 	private static final String FIRST_AID_KIT_NAME = "Apteczka";

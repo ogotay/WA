@@ -1,4 +1,6 @@
-package character;
+package world.items;
+
+import world.BasicStatistic;
 
 public class Canteen {
 	private static final int MAXIMUM_NUMBER_OF_RATIONS = 4;

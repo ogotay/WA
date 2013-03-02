@@ -1,4 +1,4 @@
-package character;
+package world;
 
 
 import static org.hamcrest.MatcherAssert.assertThat;

@@ -1,4 +1,4 @@
-package character;
+package world.items;
 
 public interface Item {
 	public String name();

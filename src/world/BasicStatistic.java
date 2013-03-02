@@ -1,4 +1,4 @@
-package character;
+package world;
 
 public class BasicStatistic {
 	private int minimumValue = 0;
