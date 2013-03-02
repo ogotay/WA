@@ -14,7 +14,7 @@ public class ItemTypeTest {
 	ItemType itemType2 = null;
 	
 	@Before
-	public void setup(){
+	public void setUp(){
 		itemType = ItemType.FIREARM;
 		itemType2 = ItemType.GENERAL;
 	}

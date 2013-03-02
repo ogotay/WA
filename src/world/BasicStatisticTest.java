@@ -15,7 +15,7 @@ public class BasicStatisticTest {
 	private BasicStatistic statistic2 = null;
 	
 	@Before
-	public void setup(){
+	public void setUp(){
 		statistic = new BasicStatistic(0, 12, 3, "Statistic");
 		statistic2 = new BasicStatistic(2, 7, 4, "Statistic2");
 	}

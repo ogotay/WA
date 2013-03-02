@@ -17,7 +17,7 @@ public class CanteenTest {
 	private Canteen canteen2 = null;
 	
 	@Before
-	public void setup(){
+	public void setUp(){
 		canteen = new Canteen(4);
 		canteen2 = new Canteen(1);
 	}

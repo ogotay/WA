@@ -11,7 +11,7 @@ public class FirstAidKitTest {
 	private FirstAidKit firstAidKit2 = null;
 	
 	@Before
-	public void setup(){
+	public void setUp(){
 		firstAidKit = new FirstAidKit(11);
 		firstAidKit2 = new FirstAidKit(2);
 	}
