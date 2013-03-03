@@ -1,29 +1,32 @@
 package world.items;
 
 public class GeneralItem implements Item {
+	private final ItemType itemType = ItemType.GENERAL;
+	private String name = null;	
+	
+	public GeneralItem(String itemName) {
+		this.name = itemName;
+	}
 
 	@Override
 	public String name() {
-		// TODO Auto-generated method stub
-		return null;
+		return name;
 	}
 
 	@Override
 	public int levelOfUnwieldiness() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public boolean isType(ItemType type) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isType(ItemType type) {		
+		return this.itemType.equals(type);
 	}
 
 	@Override
 	public boolean isNamed(String name) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.name.equals(name)
+		;
 	}
 
 }

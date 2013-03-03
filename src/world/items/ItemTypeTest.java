@@ -25,6 +25,6 @@ public class ItemTypeTest {
 		ItemType itemType4 = ItemType.GENERAL;
 		
 		assertThat(itemType.itemTypeName(), is(equalTo(itemType3.itemTypeName())));
-		assertThat(itemType.itemTypeName(), is(equalTo(itemType4.itemTypeName())));
+		assertThat(itemType2.itemTypeName(), is(equalTo(itemType4.itemTypeName())));
 	}	
 }
