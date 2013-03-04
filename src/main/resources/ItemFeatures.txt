@@ -1,0 +1,20 @@
+Item features:
+- name
+- maximum capacity
+- some items are containers for other items
+- containter can contain different types of items or only specific item type
+- size (in container)
+- variable in time or depending on other factors modification of character abilities (
+- item type
+- can be weapon
+- hand weapon has fighting skill modificator
+- firearms are using specific type of ammunition
+- firearms use specific amount of amunnition for each shot
+
+
+name
+isContainter
+size: small - 1, big - 2, very big - 3
+skills modificator
+item type
+i
