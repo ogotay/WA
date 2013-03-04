@@ -2,7 +2,7 @@ package world.items;
 
 import world.BasicStatistic;
 
-public class Canteen {
+public class Canteen extends GeneralItem {
 	private static final int MAXIMUM_NUMBER_OF_RATIONS = 4;
 	private static final String CANTEEN_NAME = "Manierka";
 	private static final String CANTEEN_RATIONS_NAME = "Racje wody";
@@ -10,6 +10,7 @@ public class Canteen {
 	private BasicStatistic waterRations = null;
 		
 	public Canteen(int numberOfWaterRations) {
+		super(CANTEEN_NAME);
 		waterRations = new BasicStatistic(0, MAXIMUM_NUMBER_OF_RATIONS, numberOfWaterRations, CANTEEN_RATIONS_NAME);
 	}
 

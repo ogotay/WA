@@ -6,6 +6,7 @@ public enum ItemType {
 	MEDICINE ("medicine"),
 	HAND_WEAPON ("hand weapon"),
 	FIREARM ("firearm"),
+	CONTAINTER ("container"),
 	GENERAL ("general");
 	
 	private String name;
@@ -18,6 +19,7 @@ public enum ItemType {
 		return this.name;
 	}
 	
+	//TODO: remove this comments
 	//food, water, medicine, hand weapon, firearm
 	//pistol, machine gun, shotgun, rifle, hand grenade
 	//hunting knife	

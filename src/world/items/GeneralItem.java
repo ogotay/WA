@@ -1,32 +1,34 @@
 package world.items;
 
 public class GeneralItem implements Item {
-	private final ItemType itemType = ItemType.GENERAL;
-	private String name = null;	
+	private String name;
+	private ItemType itemType;
+	private ItemSize itemSize;
 	
 	public GeneralItem(String itemName) {
 		this.name = itemName;
+		this.itemType = ItemType.GENERAL;
+		this.itemSize = ItemSize.NORMAL;
 	}
 
 	@Override
-	public String name() {
+	public String itemName() {
 		return name;
 	}
 
 	@Override
-	public int levelOfUnwieldiness() {
+	public ItemType itemType() {
+		return itemType;
+	}
+
+	@Override
+	public ItemSize itemSize() {
+		return itemSize;
+	}
+
+	@Override
+	public int skillModificator(SkillType skill) {
 		return 0;
-	}
-
-	@Override
-	public boolean isType(ItemType type) {		
-		return this.itemType.equals(type);
-	}
-
-	@Override
-	public boolean isNamed(String name) {
-		return this.name.equals(name)
-		;
 	}
 
 }

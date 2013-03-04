@@ -1,12 +1,9 @@
 package world.items;
 
 public interface Item {
-	public String name();
-
-	//unwieldiness 1,2,3,4,...
-	public int levelOfUnwieldiness();
+	public String itemName();
+	public ItemType itemType();	
+	public ItemSize itemSize();
 	
-	public boolean isType(ItemType type);
-	
-	public boolean isNamed(String name);
+	public int skillModificator(SkillType skill); 
 }
