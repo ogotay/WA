@@ -6,7 +6,7 @@ Item features:
 - size (in container)
 - variable in time or depending on other factors modification of character abilities (
 - item type
-- can be weapon
+- can be a weapon
 - hand weapon has fighting skill modificator
 - firearms are using specific type of ammunition
 - firearms use specific amount of ammunition for each shot

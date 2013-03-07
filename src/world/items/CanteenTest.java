@@ -34,6 +34,11 @@ public class CanteenTest {
 	}
 
 	@Test
+	public void shouldBeOfContainerType(){
+		assertThat(canteen.itemType(), is(ItemType.CONTAINTER));
+	}
+	
+	@Test
 	public void shouldBeRefilledBySpecifiedNumberOfWaterRations(){
 		int numberOfWaterRations = 5;
 		int numberOfWaterRations2 = 3;

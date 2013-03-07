@@ -12,37 +12,62 @@ import org.junit.Test;
 public class GeneralItemTest {
 
 	private static final int ZERO = 0;
-	private Item item;
-	private String itemName = "Compass";
+	private Item defaultItem;
+	private Item specifiedItem;
+	private Item fullySpecifiedItem;
+	
+	private String defaultItemName = "Compass";
+	private String specifiedItemName = "Stone club";
+	private String fullySpecifiedItemName = "Pill";
+	
+	private ItemSize specifiedItemSize = ItemSize.BIG;
+	private ItemSize fullySpecifiedItemSize = ItemSize.SMALL;
+	
+	private ItemType fullySpecifiedItemType = ItemType.MEDICINE;
 	
 	@Before
 	public void setUp() throws Exception {
-		item = new GeneralItem(itemName);
+		defaultItem = new GeneralItem(defaultItemName);
+		specifiedItem = new GeneralItem(specifiedItemName, specifiedItemSize);
+		fullySpecifiedItem = new GeneralItem(fullySpecifiedItemName, fullySpecifiedItemSize, fullySpecifiedItemType);
 	}
 	
 	@Test
 	public void shouldCreateInstanceWithValidName(){
-		assertThat(item.itemName(), is(equalTo(itemName)));
+		assertThat(defaultItem.itemName(), is(equalTo(defaultItemName)));
+		assertThat(specifiedItem.itemName(), is(equalTo(specifiedItemName)));
+		assertThat(fullySpecifiedItem.itemName(), is(equalTo(fullySpecifiedItemName)));
 	}
 	
 	@Test
 	public void shouldHaveCaseSensitiveName(){
-		assertThat(item.itemName(), is(not(equalTo(itemName.toLowerCase()))));
-		assertThat(item.itemName(), is(not(equalTo(itemName.toUpperCase()))));
+		assertThat(defaultItem.itemName(), is(not(equalTo(defaultItemName.toLowerCase()))));
+		assertThat(defaultItem.itemName(), is(not(equalTo(defaultItemName.toUpperCase()))));
 	}
 	
 	@Test
 	public void shouldCreateInstanceWithGeneralItemType(){
-		assertThat(item.itemType(), is(equalTo(ItemType.GENERAL)));
+		assertThat(defaultItem.itemType(), is(equalTo(ItemType.GENERAL)));
 	}
 	
 	@Test
-	public void shouldCreateInstanceWithNormalSize(){
-		assertThat(item.itemSize(), is(equalTo(ItemSize.NORMAL)));
+	public void shouldCreateInstanceWithNormalSizeAsDefaultSize(){
+		assertThat(defaultItem.itemSize(), is(equalTo(ItemSize.NORMAL)));
+	}
+	
+	@Test
+	public void shouldCreateInstanceWithSpecifiedItemSize(){
+		assertThat(specifiedItem.itemSize(), is(equalTo(specifiedItemSize)));
+		assertThat(fullySpecifiedItem.itemSize(), is(equalTo(fullySpecifiedItemSize)));
+	}
+	
+	@Test
+	public void shouldCreateInstanceWithSpecifiedItemType(){
+		assertThat(fullySpecifiedItem.itemType(), is(equalTo(fullySpecifiedItemType)));
 	}
 	
 	@Test
 	public void shouldNotModifyAnyTypeOfSkill(){
-		assertThat(item.skillModificator(null), is(equalTo(ZERO)));
+		assertThat(defaultItem.skillModificator(null), is(equalTo(ZERO)));
 	}
 }

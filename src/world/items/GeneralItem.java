@@ -11,6 +11,18 @@ public class GeneralItem implements Item {
 		this.itemSize = ItemSize.NORMAL;
 	}
 
+	public GeneralItem(String itemName, ItemSize itemSize) {
+		this.name = itemName;
+		this.itemType = ItemType.GENERAL;
+		this.itemSize = itemSize;
+	}
+
+	public GeneralItem(String itemName, ItemSize itemSize, ItemType itemType) {
+		this.name = itemName;
+		this.itemSize = itemSize;
+		this.itemType = itemType;
+	}
+
 	@Override
 	public String itemName() {
 		return name;

@@ -2,13 +2,14 @@ package world.items;
 
 import world.BasicStatistic;
 
-public class FirstAidKit {
+public class FirstAidKit extends GeneralContainer {
 	private static final String FIRST_AID_KIT_NAME = "Apteczka";
 	private static final String FIRST_AID_KIT_UNITS_NAME = "Jednostki";
 	private static final int MAXIMUM_NUMBER_OF_UNITS = 12;
 	private BasicStatistic units = null;
 	
 	public FirstAidKit(int numberOfUnits) {
+		super(FIRST_AID_KIT_NAME, numberOfUnits);
 		units = new BasicStatistic(0, MAXIMUM_NUMBER_OF_UNITS, numberOfUnits, FIRST_AID_KIT_UNITS_NAME);
 	}
 
