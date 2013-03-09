@@ -6,8 +6,9 @@ public enum ItemType {
 	MEDICINE ("medicine"),
 	HAND_WEAPON ("hand weapon"),
 	FIREARM ("firearm"),
-	CONTAINTER ("container"),
-	GENERAL ("general");
+	CONTAINER ("container"),
+	GENERAL ("general"),
+	ANY ("any");
 	
 	private String name;
 	

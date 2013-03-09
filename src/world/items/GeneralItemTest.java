@@ -70,4 +70,9 @@ public class GeneralItemTest {
 	public void shouldNotModifyAnyTypeOfSkill(){
 		assertThat(defaultItem.skillModificator(null), is(equalTo(ZERO)));
 	}
+	
+	@Test
+	public void shouldReturnEmptyIterator(){
+		assertThat(defaultItem.iterator().hasNext(), is(equalTo(false)));
+	}
 }

@@ -3,84 +3,105 @@ package world.items;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
 
 public class GeneralContainerTest {
 	private static final int ZERO = 0;
-	private static final int MAXIMUM_CAPACITY = 3;
 	
-	private Item item = null;
-	private String itemName = "Crate";
-	private int itemMaximumCapacity = MAXIMUM_CAPACITY;
+	private Container container = null;
+	private String containerName = "Crate";
+	private int containerMaximumCapacity = 3;
+	
+	private Container container2 = null;
+	private String containerName2 = "First aid kit";
+	private int containerMaximumCapacity2 = 12;
+	
+	private Item item = new GeneralItem("Stone");
+	private Item item2 = new GeneralItem("Flower");
+	private Item item3 = new GeneralItem("Bottle");
+	private Item item4 = new GeneralItem("Pill", ItemSize.SMALL, ItemType.MEDICINE);
 	
 	@Before
 	public void setUp(){
-		item = new GeneralContainer(itemName, itemMaximumCapacity);
-
+		container = new GeneralContainer(containerName, containerMaximumCapacity);
+		container2 = new GeneralContainer(containerName2, containerMaximumCapacity2, ItemType.MEDICINE);
 	}
 	
 	@Test
 	public void shouldHaveContainerItemType(){
-		assertThat(item.itemType(), is(equalTo(ItemType.CONTAINTER)));
+		assertThat(container.itemType(), is(equalTo(ItemType.CONTAINER)));
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void shouldHaveAbilityToConstraintInsertedItemTypes() throws Throwable{
+		container2.insert(item);		
+	}
+	
+	@Test(expected=Exception.class)
+	public void shouldNotAllowToContainMoreItemsThanAllowedByMaxiumCapacity() throws Throwable {		
+		container.insert(item);
+		container.insert(item2);
+		container.insert(item3);
+		container.insert(item4);
 	}
 	
 	@Test
-	public void shouldHaveAbilityToConstraintContaintedItemTypes(){
-		fail("Not implemented");
+	public void shouldAllowToPutNewItemsIntoContainer() throws Throwable {
+		int numberOfItems = container.numberOfItems();
+		container.insert(item);
+		assertThat(container.numberOfItems(), is(equalTo(numberOfItems + 1)));
 	}
 	
 	@Test
-	public void shouldNotAllowToContainMoreItemsThanAllowedByMaxiumCapacity(){
-		fail("Not implemented");
+	public void shouldAllowToRemoveItemFromContainer() throws Throwable{
+		container.insert(item);
+		container.insert(item2);
+		int numberOfItems = container.numberOfItems();
+		
+		@SuppressWarnings("unused")
+		Item removedItem = container.remove("Flower");
+		assertThat(container.numberOfItems(), is(equalTo(numberOfItems - 1)));	
 	}
 	
 	@Test
-	public void shouldAllowToPutNewItemsIntoContainer(){
-		fail("Not implemented");
+	public void shouldReportValidNumberOfItemsHeld() throws Throwable {
+		container.insert(item);
+		container.insert(item4);
+		
+		assertThat(container.numberOfItems(), is(equalTo(2)));
 	}
 	
 	@Test
-	public void shouldAllowToRemoveItemFromContainer(){
-		fail("Not implemented");	
+	public void shouldAllowToEmptyWholeContainer() throws Throwable {
+		container.insert(item);
+		container.insert(item2);
+		container.removeAll();
+		
+		assertThat(container.numberOfItems(), is(equalTo(ZERO)));
+	}
+	
+	@Test(expected=Exception.class)
+	public void shouldNotAllowToTakeAnythingFromContainerIfContainerIsEmpty() throws Throwable {
+		@SuppressWarnings("unused")
+		Item item = container.remove("Pill");
 	}
 	
 	@Test
-	public void shouldAllowToUseItemFromContainer(){
-		fail("Not implemented");
-	}
-	
-	@Test
-	public void shouldAllowToEmptyWholeContainer(){
-		fail("Not implemented");
-	}
-	
-	@Test
-	public void shouldNotAllowToTakeAnythingFromContainerIfContainerIsEmpty(){
-		fail("Not implemented");
-	}
-	
-	@Test
-	public void shouldFindSpecificItemInContainer(){
-		fail("Not implemented");
+	public void shouldFindSpecificItemInContainer() throws Throwable {
+		container.insert(item);
+		container.insert(item2);
+		container.insert(item3);
+		
+		String itemNameToFind = "Bottle";
+		
+		Item itemFound = container.find(itemNameToFind);
+		assertThat(itemFound, is(equalTo(item3)));
 	}
 		
 	@Test
 	public void shouldNotModifyAnyTypeOfSkill(){
-		assertThat(item.skillModificator(null), is(equalTo(ZERO)));
+		assertThat(container.skillModificator(null), is(equalTo(ZERO)));
 	}
-	
-	
-	
-	/*
-	 * 
-	 * 	- maximum capacity
-		- some items are containers for other items
-		- containter can contain different types of items or only specific item type
-		- size (in container)
-		- variable in time or depending on other factors modification of character abilities
-	 */
-	
 }

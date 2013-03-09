@@ -35,7 +35,7 @@ public class CanteenTest {
 
 	@Test
 	public void shouldBeOfContainerType(){
-		assertThat(canteen.itemType(), is(ItemType.CONTAINTER));
+		assertThat(canteen.itemType(), is(ItemType.CONTAINER));
 	}
 	
 	@Test

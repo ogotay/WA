@@ -1,5 +1,9 @@
 package world.items;
 
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
 public class GeneralItem implements Item {
 	private String name;
 	private ItemType itemType;
@@ -41,6 +45,12 @@ public class GeneralItem implements Item {
 	@Override
 	public int skillModificator(SkillType skill) {
 		return 0;
+	}
+
+	@Override
+	public Iterator<Item> iterator() {
+		List<Item> emptyList = Collections.<Item>emptyList();
+		return emptyList.iterator();
 	}
 
 }
