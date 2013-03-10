@@ -1,44 +1,33 @@
 package world.items;
 
-import world.BasicStatistic;
+import java.util.Collection;
 
 public class FirstAidKit extends GeneralContainer {
-	private static final String FIRST_AID_KIT_NAME = "Apteczka";
-	private static final String FIRST_AID_KIT_UNITS_NAME = "Jednostki";
-	private static final int MAXIMUM_NUMBER_OF_UNITS = 12;
-	private BasicStatistic units = null;
+	private final static String FIRST_AID_KIT_NAME = "Apteczka";
+	private final static int FIRST_AID_KIT_MAXIMUM_CAPACITY = 12;
 	
-	public FirstAidKit(int numberOfUnits) {
-		super(FIRST_AID_KIT_NAME, numberOfUnits);
-		units = new BasicStatistic(0, MAXIMUM_NUMBER_OF_UNITS, numberOfUnits, FIRST_AID_KIT_UNITS_NAME);
+	
+	public FirstAidKit() {
+		super(FIRST_AID_KIT_NAME, FIRST_AID_KIT_MAXIMUM_CAPACITY, ItemType.MEDICINE);
 	}
 
-	public int maximumNumberOfUnits() {
-		return MAXIMUM_NUMBER_OF_UNITS;
-	}
-	
-	public int numberOfUnits() {
-		return units.getCurrentValue();
-	}
 
-	public void refillBy(int numberOfUnits) {
-		if (numberOfUnits <= 0) {
-			throw new IllegalArgumentException("Cannot refill first aid kit by number of units lower than or equal to zero: "+ Integer.toString(numberOfUnits));
+	public void refillBy(Collection<Item> medicineUnits) throws Throwable {
+		if (medicineUnits.size() <= 0) {
+			throw new IllegalArgumentException("Cannot refill first aid kit by number of units lower than or equal to zero: "+ Integer.toString(medicineUnits.size()));
 		}
 		
-		units.changeCurrentValueBy(numberOfUnits);		
+		for (Item item: medicineUnits){
+			if (this.numberOfItems() < FIRST_AID_KIT_MAXIMUM_CAPACITY)
+			  insert(item);
+		}		
 	}
 
-	public void useUp(int numberOfUnits) {
-		units.changeCurrentValueBy(Math.abs(numberOfUnits) * -1);		
+
+	public void useUp(int numberOfMedicineUnits) throws Throwable {
+		for (int i=numberOfMedicineUnits; i>0; i--){
+			this.remove();
+		}
+		
 	}
-
-	public String getName() {		
-		return FIRST_AID_KIT_NAME;
-	}
-	
-	
-
-	
-
 }
