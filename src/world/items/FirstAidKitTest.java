@@ -50,7 +50,7 @@ public class FirstAidKitTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void shouldThrowExceptionWhenRefilledByNumberOfUnitsLowerThanZero(){
-		int numberOfUnits = 0;
+		int numberOfUnits = -2;
 		firstAidKit.refillBy(numberOfUnits);		
 	}	
 	

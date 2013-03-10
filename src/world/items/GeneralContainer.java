@@ -57,13 +57,25 @@ public class GeneralContainer extends GeneralItem implements Container {
 		} else {
 			throw new Exception("Error while trying to remove "+ itemName +" from "+ itemName());
 		}
-
 	}
 
+	
+	@Override
+	public Item remove() throws Throwable {
+		Item item = null;
+		
+		if (!itemsList.isEmpty()) {
+			item = itemsList.remove(0);
+		} else {
+			throw new Exception(itemName() +" is empty.");
+		}
+		
+		return item;
+	}	
+	
 	@Override
 	public void removeAll() {
 		itemsList.clear();
-
 	}
 
 	@Override
@@ -76,6 +88,8 @@ public class GeneralContainer extends GeneralItem implements Container {
 
 		throw new Exception("Item "+ itemName +" not found in "+ itemName());
 	}
+
+
 
 
 }

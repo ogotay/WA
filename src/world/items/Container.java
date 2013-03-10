@@ -6,5 +6,6 @@ public interface Container extends Item {
 	void insert(Item item) throws Throwable;
 	Item find(String itemName) throws Throwable;
 	Item remove(String itemName) throws Throwable;
-	void removeAll();
+	Item remove() throws Throwable;
+	void removeAll();	
 }

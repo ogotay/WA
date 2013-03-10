@@ -55,13 +55,24 @@ public class GeneralContainerTest {
 	}
 	
 	@Test
-	public void shouldAllowToRemoveItemFromContainer() throws Throwable{
+	public void shouldAllowToRemoveSpecificItemFromContainer() throws Throwable{
 		container.insert(item);
 		container.insert(item2);
 		int numberOfItems = container.numberOfItems();
 		
 		@SuppressWarnings("unused")
 		Item removedItem = container.remove("Flower");
+		assertThat(container.numberOfItems(), is(equalTo(numberOfItems - 1)));	
+	}
+	
+	@Test
+	public void shouldAllowToRemoveFirstItemFromContainer() throws Throwable{
+		container.insert(item);
+		container.insert(item2);
+		int numberOfItems = container.numberOfItems();
+		
+		@SuppressWarnings("unused")
+		Item removedItem = container.remove();
 		assertThat(container.numberOfItems(), is(equalTo(numberOfItems - 1)));	
 	}
 	
