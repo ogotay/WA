@@ -30,4 +30,9 @@ public class FirstAidKit extends GeneralContainer {
 		}
 		
 	}
+	
+	/*TODO: Error handling in container methods (useUp, remove, insert):
+	 *  - best error class
+	 *  - interrupted removing of items from container should rollback changes?
+	 */
 }

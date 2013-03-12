@@ -3,8 +3,9 @@ TODO's
 I. Things to thought about:
 	1. Should item name be case sensitive?
 
-	2. One class for all kinds of items?
-
-	3. Is Item interface necessary?
+	2. Is Item interface necessary?
 	
-	4. Consider constraining item types in container. 
+	3. Error handling in container methods (useUp, remove, insert):
+	   - best error class
+	   - interrupted removing of items from container should rollback changes?
+	
