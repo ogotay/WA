@@ -36,7 +36,7 @@ public class FirstAidKitTest {
 	}
 	
 	@Before
-	public void setUp() throws Throwable{
+	public void setUp() throws Throwable {
 		firstAidKit = new FirstAidKit();
 		firstAidKit2 = new FirstAidKit();
 		
@@ -86,6 +86,12 @@ public class FirstAidKitTest {
 		int numberOfUnits = 0;
 		firstAidKit.refillBy(createMedicines(numberOfUnits));		
 	}	
+	
+	@Test(expected=Throwable.class)
+	public void shouldThrowExceptionWhenTryToUseUpMoreThanCurrentNumberOfMedicineUnits() throws Throwable {
+		int numberOfUnits = firstAidKit.numberOfItems();
+		firstAidKit.useUp(numberOfUnits + 1);
+	}
 	
 	@Test
 	public void shouldUseUpSpecifiedNumberOfUnits() {
