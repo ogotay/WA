@@ -1,6 +1,7 @@
 package world.items;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class GeneralContainer extends GeneralItem implements Container {
 
@@ -74,7 +75,7 @@ public class GeneralContainer extends GeneralItem implements Container {
 	}	
 	
 	@Override
-	public void removeAll() {
+	public void removeAllItems() {
 		itemsList.clear();
 	}
 
@@ -89,7 +90,7 @@ public class GeneralContainer extends GeneralItem implements Container {
 		throw new Exception("Item "+ itemName +" not found in "+ itemName());
 	}
 
-
-
-
+	public Iterator<Item> iterator(){
+		return this.itemsList.iterator();
+	}
 }

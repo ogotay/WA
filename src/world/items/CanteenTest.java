@@ -8,10 +8,10 @@ import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class CanteenTest {
@@ -20,17 +20,9 @@ public class CanteenTest {
 	private Canteen canteen2 = null;
 	private final int MAXIMUM_NUMBER_OF_WATER_RATIONS = 4;
 	
+	@Ignore
 	private List<Item> createWaterRations(int numberOfWaterRationsToCreate){
-		final String RATION_NAME = "Water ration"; 
-		List<Item> rations = new ArrayList<Item>(numberOfWaterRationsToCreate);
-		
-		
-		for (int i=0; i<numberOfWaterRationsToCreate; i++){
-			Item item = new GeneralItem(RATION_NAME, ItemSize.SMALL, ItemType.WATER);
-			rations.add(item);
-		}
-		
-		return rations;
+		return GeneralContainerTest.createGeneralItems(numberOfWaterRationsToCreate, ItemType.WATER, ItemSize.SMALL, "Water ration");
 	}
 	
 	@Before

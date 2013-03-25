@@ -9,10 +9,10 @@ import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class FirstAidKitTest {
@@ -22,17 +22,9 @@ public class FirstAidKitTest {
 	private FirstAidKit firstAidKit2 = null;
 	private final static int FIRST_AID_KIT_MAXIMUM_CAPACITY = 12;
 	
+	@Ignore
 	private List<Item> createMedicines(int numberOfMedicineUnitsToCreate){
-		final String MEDICINE_NAME = "Pill"; 
-		List<Item> medicines = new ArrayList<Item>(numberOfMedicineUnitsToCreate);
-		
-		
-		for (int i=0; i<numberOfMedicineUnitsToCreate; i++){
-			Item item = new GeneralItem(MEDICINE_NAME, ItemSize.SMALL, ItemType.MEDICINE);
-			medicines.add(item);
-		}
-		
-		return medicines;
+		return GeneralContainerTest.createGeneralItems(numberOfMedicineUnitsToCreate, ItemType.MEDICINE, ItemSize.SMALL, "Pill");		
 	}
 	
 	@Before

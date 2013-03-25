@@ -4,7 +4,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class GeneralContainerTest {
@@ -22,6 +26,18 @@ public class GeneralContainerTest {
 	private Item item2 = new GeneralItem("Flower");
 	private Item item3 = new GeneralItem("Bottle");
 	private Item item4 = new GeneralItem("Pill", ItemSize.SMALL, ItemType.MEDICINE);
+	
+	@Ignore
+	public static List<Item> createGeneralItems(int numberOfItems, ItemType itemType, ItemSize itemSize, String itemsName){
+		List<Item> items = new ArrayList<Item>(numberOfItems);
+				
+		for (int i=0; i<numberOfItems; i++){
+			Item item = new GeneralItem(itemsName, itemSize, itemType);
+			items.add(item);
+		}
+		
+		return items;
+	}
 	
 	@Before
 	public void setUp(){
@@ -88,7 +104,7 @@ public class GeneralContainerTest {
 	public void shouldAllowToEmptyWholeContainer() throws Throwable {
 		container.insert(item);
 		container.insert(item2);
-		container.removeAll();
+		container.removeAllItems();
 		
 		assertThat(container.numberOfItems(), is(equalTo(ZERO)));
 	}
