@@ -8,6 +8,7 @@ public enum ItemType {
 	FIREARM ("firearm"),
 	CONTAINER ("container"),
 	GENERAL ("general"),
+	AMMUNITION ("ammunition"),
 	ANY ("any");
 	
 	private String name;

@@ -60,6 +60,9 @@ public class BackpackTest {
 		
 		backpack.insert(boulder);
 		assertThat(backpack.availableSpace(), is(equalTo(5)));
+		
+		backpack.insert(new GeneralItem("Coin", ItemSize.SMALL));
+		assertThat(backpack.availableSpace(), is(equalTo(4)));
 	}
 	
 	@Test
@@ -195,6 +198,21 @@ public class BackpackTest {
 		
 		backpack.insert(new GeneralItem("Map"));
 		assertThat(backpack.skillModificator(skill), is(equalTo(-3)));		
+	}
+	
+
+	@Test
+	public void shouldNotChangeStatisticsOtherThanAgility() throws Throwable{
+		backpack.insert(boulder);
+		backpack.insert(firstAidKit);
+		backpack.insert(cbRadio);
+		backpack.insert(canteen);
+        assertThat(backpack.skillModificator(SkillType.DRIVING), is(equalTo(ZERO)));
+        assertThat(backpack.skillModificator(SkillType.PERCEPTION), is(equalTo(ZERO)));
+        assertThat(backpack.skillModificator(SkillType.SHOOTING), is(equalTo(ZERO)));
+        assertThat(backpack.skillModificator(SkillType.TERRAIN_ORIENTATION), is(equalTo(ZERO)));
+        assertThat(backpack.skillModificator(SkillType.FIGHTING), is(equalTo(ZERO)));
+        assertThat(backpack.skillModificator(SkillType.TOUGHNESS), is(equalTo(ZERO)));
 	}
 	
 	/*

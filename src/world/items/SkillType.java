@@ -1,5 +1,11 @@
 package world.items;
 
 public enum SkillType {
-	AGILITY
+	AGILITY,
+	PERCEPTION,
+	TERRAIN_ORIENTATION,
+	SHOOTING,
+	DRIVING,
+	FIGHTING,
+	TOUGHNESS
 }

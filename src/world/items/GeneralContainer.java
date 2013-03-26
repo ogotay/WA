@@ -67,11 +67,10 @@ public class GeneralContainer extends GeneralItem implements Container {
 		
 		if (!itemsList.isEmpty()) {
 			item = itemsList.remove(0);
+			return item;
 		} else {
 			throw new Exception(itemName() +" is empty.");
-		}
-		
-		return item;
+		}	
 	}	
 	
 	@Override
